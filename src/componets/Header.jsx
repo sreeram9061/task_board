@@ -10,10 +10,12 @@ const Header = () => {
 
     const{userName}=useSelector(state=> state.user)
     const{statusOfUser}=useSelector(state=> state.user)
-    const{points,tasks,addTaskBtn}=useSelector(state=> state.task)
+    const{points,tasks,addTaskBtn,copyOfSearchArray}=useSelector(state=> state.task)
+    
     
     const dispatch=useDispatch()
     const selcter=useRef()
+    const search=useRef()
 
 
     const handileSelector=()=>{
@@ -21,12 +23,16 @@ const Header = () => {
     }
 
     const handileChanges=(e)=>{
+        console.log('changed')
        const matchedTask= tasks.filter(item=> e.target.value!='' && item.taskName.match(e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1)))
        dispatch(setSearchTasks({textOfArr:matchedTask,lengthOfText:e.target.value.split('').length}))
+
     }
 
     useEffect(()=>{
         selcter.current.value="TASK_DFLT"
+        search.current.value=""
+        dispatch(setSearchTasks({textOfArr:[],lengthOfText:0}))
     },[addTaskBtn])
     
   return (
@@ -51,7 +57,7 @@ const Header = () => {
                         <option value="TASK_DESC">Sort By Task Name DESC.</option>
                         <option value="DATE_DESC">Sort By Last Created</option>
                     </select>
-                    <input onChange={handileChanges} type="search" placeholder="Search"/>
+                    <input ref={search} onChange={handileChanges} type="search" placeholder="Search"/>
                     <div className="points">
                         <p><FaTrophy className="trophy"/>: {points}</p>
                     </div>

@@ -27,7 +27,7 @@ const EditTask = () =>{
     const handileCancel=()=>{
       dispatch(setStatusOfEditTask({status:!status,id})) 
       inputText.current.value=''
-      inputNumber.current.value=''
+      if( inputNumber.current ) inputNumber.current.value=''
     }
 
     const handileChangeData=()=>{

@@ -17,7 +17,7 @@ const TaskCard = ({taskData:{createdTime,eD,id,pT,taskDirection,taskName}}) => {
     if(!taskDirection){
       dispatch(changeDirectionOfTask(id))
     }else{
-      dispatch(deleteTask(id)) 
+      dispatch(deleteTask(id))
     }
   }
 

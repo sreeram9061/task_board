@@ -5,7 +5,7 @@ import TaskCard from "./TaskCard"
 
 
 const Tasklists = () => {
-   const{tasks,searchTasks,soartTAsks,soart}= useSelector(state=> state.task)
+   const{tasks,searchTasks,copyOfSearchArray,soartTAsks,soart}= useSelector(state=> state.task)
    const {statusPT}=useSelector(state=> state.sPT)
    const dispatch=useDispatch()
    
@@ -14,19 +14,18 @@ const Tasklists = () => {
     taskFromLoacaolStorage &&  dispatch(setTaskData(taskFromLoacaolStorage))
    },[])
 
-
-/* sakfj */
-
-
    function handleOnGoing(item){
     return !item.taskDirection
    }
+
    function handleOnCompleated(item){
     return item.taskDirection
    }
+
    const handilePTOnGoing=(it)=>{
     return it.pT && !it.taskDirection
    }
+   
    const handilePTCom=(it)=>{
     return it.pT && it.taskDirection
    }
@@ -37,7 +36,7 @@ const Tasklists = () => {
         <div className="left_section">
             <h2>ONGOING TASKS</h2>
             {
-                searchTasks.textOfArr?.length==0 && searchTasks.lengthOfText==0 ?
+                copyOfSearchArray?.length==0 && searchTasks.lengthOfText==0 ?
                  <div className="taskss">
                     {
                         !soart && tasks ?.filter(!statusPT ? handleOnGoing : handilePTOnGoing).map((item)=>(
@@ -50,7 +49,7 @@ const Tasklists = () => {
                         ))
                     }
                     {
-                        (! tasks?.some(!statusPT ? handleOnGoing : handilePTOnGoing) && <>
+                        (!tasks?.some(!statusPT ? handleOnGoing : handilePTOnGoing) && <>
                         <div className="Emty_Status">
                             <p>No Items In Ongoing Tasks Tasks</p>
                         </div>
@@ -60,12 +59,12 @@ const Tasklists = () => {
 
                  <div className="search">
                     {
-                        searchTasks.textOfArr?.filter(!statusPT ? handleOnGoing : handilePTOnGoing).map((item)=>(
+                        copyOfSearchArray?.filter(!statusPT ? handleOnGoing : handilePTOnGoing).map((item)=>(
                             <TaskCard taskData={item} key={item.id}/>
                         ))
                     }
                     {
-                     (!searchTasks.textOfArr?.some(!statusPT ? handleOnGoing : handilePTOnGoing) && <>
+                     (!copyOfSearchArray?.some(!statusPT ? handleOnGoing : handilePTOnGoing) && <>
                      <div className="Emty_Status">
                          <p>No Items In Ongoing Tasks Tasks</p>
                      </div>
@@ -77,7 +76,7 @@ const Tasklists = () => {
         <div className="right_section">
             <h2>COMPLETED TASKS</h2>
             {
-                searchTasks.textOfArr?.length==0 && searchTasks.lengthOfText==0 ?
+                copyOfSearchArray?.length==0 && searchTasks.lengthOfText==0 ?
                 <div className="taskss">
                    {
                     !soart && tasks?.filter(!statusPT ? handleOnCompleated : handilePTCom).map((item)=>(
@@ -99,12 +98,12 @@ const Tasklists = () => {
                 </div> :
                 <div className="search">
                     {
-                        searchTasks.textOfArr?.filter(!statusPT ? handleOnCompleated : handilePTCom).map((item)=>(
+                        copyOfSearchArray?.filter(!statusPT ? handleOnCompleated : handilePTCom).map((item)=>(
                             <TaskCard taskData={item} key={item.id}/>
                         ))
                     }
                     {
-                       (!searchTasks.textOfArr?.some(!statusPT ? handleOnCompleated : handilePTCom) && <>
+                       (!copyOfSearchArray?.some(!statusPT ? handleOnCompleated : handilePTCom) && <>
                        <div className="Emty_Status">
                            <p>No Items In Completed Tasks Tasks</p>
                        </div>

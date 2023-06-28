@@ -22,7 +22,7 @@ const TaskCreation = () => {
         const taskName=inp.current.value
         inp.current.value ? dispatch(setTasks({
             taskName:taskName.charAt(0).toUpperCase() + taskName.slice(1),
-            createdTime:useDateAndTime("Created On"),
+            createdTime:`Creacted on ${useDateAndTime()}`,
             pT:pT.current.checked,
             eD:eD.current.value,
             taskDirection:sCT.current.checked
