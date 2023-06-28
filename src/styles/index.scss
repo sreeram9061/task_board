@@ -1,0 +1,422 @@
+@import "maxins";
+@import "colors";
+@import "reset";
+
+.wrapper{
+    max-width: 1480px;
+    margin: 0 auto;
+    padding: 0 20px;
+    @include flexBox(column,none,start,100px);
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    background-color: $bg;
+}
+     
+  /* Handle */
+::-webkit-scrollbar-thumb {
+  background-color:$btnhover; 
+  border-radius: 10px;
+}
+
+.App{
+    position: relative;
+    .dataremovecard{
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        @include flexBox(row,none,center,10px);
+        .container{
+            pointer-events: all;
+            transform: translateY(-270px);
+            transition: transform ease-in-out .5s;
+            background-color: $btnhover;
+            padding: 20px 15px;
+            border-radius: 7px;
+            height: fit-content;
+            p{
+                color: white;
+                padding: 6px 0;
+            }
+            .btns{
+                @include flexBox(row,center,center,10px);
+                button{
+                    width: 50px;
+                    height: 25px;
+                    cursor: pointer;
+                    border: none;
+                    border-radius: 5px;
+                    
+                }
+    
+            }
+        }
+    }
+}
+
+/* user identity page */
+.get_in_page{
+    width: 100%;
+    min-height: 100vh;
+    background-color: $bg;
+    @include flexBox(column,center,center,0);
+
+    .userDetailsBox{
+        background-color:#070A25;
+        border: 1px solid $boarder;
+        box-shadow: 0px 0px 85px 29px $boxshadow;
+        border-radius: 24px;
+        padding:30px 50px ;
+        @include flexBox(column,center,center,25px);
+        .headingContainer{
+            @include flexBox(column,center,center,4px);
+            p{
+                color: white;
+            }
+            h2{
+                color: $primerytext;
+            }
+        }
+        input{
+            width: 400px;
+            height: 40px;
+            background: $inputbox;
+            border-radius: 5px;
+            outline: none;
+            padding-left: 3px;
+            font-size: 18px;
+        }
+    }
+    button{
+        width: 90px;
+        height: 40px;
+        border-radius: 5px;
+        background:$btn ;
+        color: white;
+        border: none;
+        font-size: 16px;
+        transition: background-color ease-in-out .4s;
+      
+        cursor: pointer;
+        &:hover{
+            background: $btnhover;
+        }
+    }
+}
+
+
+
+/* home page */
+.container_of_home_page{
+    min-height: 100vh;
+    background-color: $bg;
+    
+}
+
+.header{
+    @include flexBox(column,center,center,0);
+    .header_top{
+        width: 100%;
+        .remov_data_user{
+            padding: 10px 15px;
+            @include flexBox(row,center,end,25px);
+            p{
+                @include flexBox(row,center,start,5px);
+                .icon{
+                    color: $primerytext;
+                }
+                color: white;
+            }
+        }
+    }
+
+    .header_bottom{
+        width: 100%;
+        .header_box{
+            border:2px solid $boarder ;
+            padding:20px 15px ;
+            border-radius: 13px;
+            @include flexBox(row,center,space-between,0);
+            .logo_right_side{
+               img{
+                width: 120px;
+               }
+            }
+            
+            .left_side{
+                @include flexBox(row,center,space-between,10px);
+                
+                input,select{
+                    width: fit-content;
+                    height: 40px;
+                    border-radius: 5px;
+                    box-shadow: inset 0px 0px 8px 4px rgba(0, 0, 0, 0.25);
+                    outline: none;
+                    border: none;
+                    background-color: $inputbox;
+                    font-size: 17px;
+                    color: black;
+                    padding-left: 3px;
+                }
+                .points{
+
+                    p{  
+                        font-size: 17px;
+                        @include flexBox(row,center,start,2px);
+                        .trophy{
+                            color: goldenrod;
+
+                        }
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.taskCreation{
+    @include flexBox(row,none,space-between,0);
+    .left_section{
+        @include flexBox(column,none,none,10px);
+    .top_section{
+        display: flex;
+        gap: 20px;
+        input{
+            width: 700px;
+            height: 35px;
+            background-color: transparent;
+            border: none;
+            border-bottom: 2px solid $boarder;
+            outline: none;
+            color: white;
+            font-size: 17px;
+            transition: border ease .5s;
+            &:hover{
+                border-bottom: 2px solid $inputbox ;
+            }
+        }
+
+        button{
+            height: 35px;
+            width: 80px;
+            border-radius: 5px;
+            outline: none;
+            border: none;
+            background-color: $inputbox;
+            transition: all ease .2s;
+            cursor: pointer;
+            &:hover{
+                background-color: $btnhover;
+                color: white;
+            }
+
+        }
+    }
+
+
+    .bottom_section{
+        display: flex;
+        gap: 20px;
+        div{
+            @include flexBox(row,center,none,2px);
+            input{
+                height: 20px;
+                width: 20px;
+                cursor: pointer;
+
+            }
+            input[type="number"]{
+                border: none;
+                width: 50px;
+                outline: none;
+                height: 20px;
+                border-radius: 2px;
+                padding-left: 4px;
+                cursor: text;
+            }
+            label{
+                color: white;
+            }
+        }
+
+    }
+    }
+
+    button{
+        height: fit-content;
+        padding: 10px 15px;
+        border-radius: 5px;
+        outline: none;
+        border: none;
+        font-size: 17px;
+        cursor: pointer;
+        transition: all ease .2s;
+    }
+
+    .btn_true{
+        background-color: $inputbox;
+
+    }
+    .btn_false{
+        background-color: $btnhover;
+        color: rgb(190, 188, 188);
+        &:hover{
+            color: rgb(229, 227, 227);
+        }
+    }
+}
+
+@mixin sctionStyles(){
+    border: 2px solid $boarder;
+    border-radius: 5px;
+    width: 50%;
+    padding: 0 20px;
+    h2{
+        color: white;
+        text-align: center;
+        padding: 20px 0;
+        border-bottom: 2px solid $boarder;
+    }
+    .taskss{
+        padding: 10px 0;
+        @include flexBox(column,none,center,5px);
+
+        .Emty_Status{
+            p{
+                color: rgb(102, 102, 102);
+                padding: 40px 14px;
+                text-align: center
+            }
+        }
+    }
+    .search{
+        padding: 10px 0;
+        @include flexBox(column,none,center,5px);
+
+        .Emty_Status{
+            p{
+                color: rgb(102, 102, 102);
+                padding: 40px 14px;
+                text-align: center
+            }
+        }
+
+    }
+}
+
+.tasklists{
+    @include flexBox(row,none,center,5px);
+    padding-bottom: 20px;
+    .left_section{
+       
+       @include sctionStyles();
+       .expected_days{
+        color: $primerytext;
+       }
+
+    }
+    .right_section{
+        @include sctionStyles();
+        .expected_days{
+            color: $primerytext;
+        }
+    }
+
+}
+
+/* task card */
+.taskcard{
+    @include flexBox(row,center,space-between,0);
+    padding: 10px 10px;
+    border-radius: 7px;
+    .taskcard_left_section{
+        @include flexBox(column,none,center,5px);
+        h3{
+            color: white;
+        }
+        p{
+            color: white;
+        }
+        
+    }
+    .taskcard_right_section{
+        display: flex;
+        gap: 10px;
+        ._btn{
+            background-color: $inputbox;
+            color: black;
+            padding: 7px 15px ;
+            border-radius: 7px;
+            border: none;
+            cursor: pointer;
+            transition:all ease .5s ;
+            &:hover{
+                background-color: $btnhover;
+                color: white;
+            }
+        }
+        ._D_btn{
+            background-color: $primerytext;
+            color: white;
+            padding: 7px 15px ;
+            border-radius: 7px;
+            border: none;
+            cursor: pointer;
+        }
+
+    }
+
+}
+
+.edittask{
+    position: absolute;
+    inset: 0;
+    height: 100vh;
+    @include flexBox(row,none,center,5px);
+    transform: translateY(-370px);
+    transition: transform ease-in-out .5s;
+    padding-top: 50px;
+    pointer-events: none;
+    .tnputscont{
+        border-radius: 5px;
+        padding: 15px 25px;
+        background-color: $btnhover;
+        height: fit-content;
+        @include flexBox(column,center,center,10px);
+        input{
+            width: 260px;
+            height: 30px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            padding-left: 5px;
+            background-color: $inputbox;
+        }
+
+        .changes{
+            @include flexBox(row,center,center,5px);
+            p{
+                color: white;
+            }
+
+            .btns{
+                display: flex;
+                gap: 5px;
+                button{
+                    width: 40px;
+                    height: 20px;
+                    border: none;
+                    outline: none;
+                    cursor: pointer;
+                    border-radius: 5px;
+                }
+            }
+
+        }
+
+    }
+
+}
