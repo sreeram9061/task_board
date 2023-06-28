@@ -26,7 +26,7 @@ const Header = () => {
         console.log('changed')
        const matchedTask= tasks.filter(item=> e.target.value!='' && item.taskName.match(e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1)))
        dispatch(setSearchTasks({textOfArr:matchedTask,lengthOfText:e.target.value.split('').length}))
-
+       selcter.current.value="TASK_DFLT"
     }
 
     useEffect(()=>{
