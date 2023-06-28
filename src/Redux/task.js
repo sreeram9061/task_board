@@ -120,6 +120,7 @@ const taskSlice=createSlice({
             }
             if(payload=="TASK_DFLT"){
                 state.soart=false
+                
                 state.copyOfSearchArray=state.searchTasks.textOfArr
             }
 
